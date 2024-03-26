@@ -1,0 +1,10 @@
+Question,Mean,SD,Median,IQR,Min,Max
+Percent of adults aged 18 years and older who have an overweight classification,35.084782608695654,1.4687257464012342,35.2,1.8999999999999986,29.1,39.1
+Percent of adults aged 18 years and older who have obesity,30.51055900621118,4.138907715119213,30.4,6.024999999999999,20.2,41
+Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination),50.83735849056604,5.694601427689223,50.8,7.100000000000001,19.6,64.1
+Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week,20.59320754716981,3.468280386493682,20.9,4.099999999999998,5.4,28.5
+Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination),31.653584905660377,4.638597576699144,31.3,5.9999999999999964,9.8,45.8
+Percent of adults who engage in muscle-strengthening activities on 2 or more days a week,30.512075471698115,4.397305200300006,30.4,4.399999999999999,9.8,40.6
+Percent of adults who engage in no leisure-time physical activity,24.865318818040436,4.8906256264545975,24.4,5.599999999999998,15.1,54
+Percent of adults who report consuming fruit less than one time daily,39.385714285714286,4.828701393010045,38.9,6.600000000000001,29.7,56
+Percent of adults who report consuming vegetables less than one time daily,20.036024844720497,4.67629063461403,19.7,3.900000000000002,12.4,46.6

@@ -40,7 +40,7 @@ unique_stratification
 
 ### Unique Variables
 ```{r unique_question}
-# Check how many specific questions are therr in the dataset
+# Check how many specific questions are there in the dataset
 unique_questions <- unique(df_clean$Question)
 unique_questions
 ```
@@ -54,11 +54,11 @@ sub_datasets <- lapply(sub_datasets, function(subset) {
   return(subset)
 })
 
-df_age_subset <- sub_datasets[['Age (years)']]
+df_age_subset <- sub_datasets[['Age']]
 df_education_subset <- sub_datasets[['Education']]
 df_gender_subset <- sub_datasets[['Gender']]
 df_income_subset <- sub_datasets[['Income']]
-df_race_subset <- sub_datasets[['Race/Ethnicity']]
+df_race_subset <- sub_datasets[['Ethnicity']]
 df_total_subset <- sub_datasets[['Total']]
 ```
 

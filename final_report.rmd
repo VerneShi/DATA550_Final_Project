@@ -1,0 +1,49 @@
+---
+title: "Final Project Report"
+author: "Yiwei Shi"
+date: "`r Sys.Date()`"
+output: html_document
+params:
+  production: TRUE
+  cutpoint: 1
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(dplyr)
+library(here)
+
+# Set global chunk options
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, eval = params$production)
+
+# Ensure here() is correctly pointing to the project root
+here::i_am("final_report.Rmd")
+```
+
+## Introduction
+This dataset includes data on adult's diet, physical activity, and weight status from Behavioral Risk Factor Surveillance System of all states in the US from 2011 to 2022. The dataset is in long format and also includes different stratification of Race/Ethnicity, Education, Income, Age (years) and Gender.  I will use the dataset to investigate the relationship of obesity rate and overweight rate with other behavioral factors. Also, I will use the stratified data to explore the geographical, demoghraphical and sociological influence to obesity and obesity rate. The R Markdown report may include data process, EDA, ANOVA test and regression model.
+
+## Data Process
+Data processing is handled in external scripts. The processed data is then used for generating tables and figures saved in the output directory.
+
+## Summary Tables
+```{r}
+summary_table_path <- here("output/tables/summary_stats_total.csv")
+summary_df <- read.csv(summary_table_path)
+kable(summary_df) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = F)
+```
+
+## Distribution Plots
+```{r}
+distribution_plot_path <- here("output/figures/obesity_trend_plot.png")
+knitr::include_graphics(distribution_plot_path)
+```
+
+## Advanced Analysis
+
+Sections for ANOVA and regression analysis follow, integrating results and figures produced by the analysis scripts.
+
+## Conclusion
