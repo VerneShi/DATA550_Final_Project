@@ -1,3 +1,7 @@
+install:
+	@echo "Restoring R package environment..."
+	Rscript -e 'renv::restore()'
+	
 report: pre_analysis
 	Rscript -e "rmarkdown::render('final_report.Rmd')"
 
