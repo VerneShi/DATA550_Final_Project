@@ -11,6 +11,25 @@ To replicate the computing environment necessary to run this project, follow the
 1. Clone this repository to your local machine.
 2. Ensure that you have R installed on your system.
 3. Navigate to the project directory and run `make install` from the terminal. This will set up the R environment using the `renv` package.
+4. Ensure Docker is installed on your system to handle the project containerization. 
+5. Use the provided Makefile to build the Docker image, which sets up the R environment with all necessary dependencies.
+```bash
+make project_image
+```
+
+## DockerHub Repository
+1. Accessing the Docker Image
+View and pull the Docker image directly from DockerHub to avoid local builds: [DockerHub Repository for Data 550 Final Project](https://hub.docker.com/repository/docker/yiweishi/data550_final_project/general)
+2. Pulling the Docker Image
+To pull the latest version of the Docker image:
+```bash
+docker pull yiweishi/data550_final_project:latest
+```
+3. Generate Report Using Docker
+After pulling the image, generate the final report by running the Docker container:
+```bash
+docker run --rm -v "${PWD}/final_report:/project/final_report" yiweishi/data550_final_project
+```
 
 ## Generating the Final Report
 
