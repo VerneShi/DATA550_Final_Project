@@ -23,7 +23,7 @@ here::i_am("final_report.Rmd")
 ```
 
 ## Introduction
-This dataset includes data on adult's diet, physical activity, and weight status from Behavioral Risk Factor Surveillance System of all states in the US from 2011 to 2022. The dataset is in long format and also includes different stratification of Race/Ethnicity, Education, Income, Age (years) and Gender.  I will use the dataset to investigate the relationship of obesity rate and overweight rate with other behavioral factors. Also, I will use the stratified data to explore the geographical, demoghraphical and sociological influence to obesity and obesity rate. The R Markdown report may include data process, EDA, ANOVA test and regression model.
+This dataset includes data on adult's diet, physical activity, and weight status from Behavioral Risk Factor Surveillance System of all states in the US from 2011 to 2022. The dataset is in long format and also includes different stratification of Race/Ethnicity, Education, Income, Age (years) and Gender. I will use the dataset to investigate the relationship of obesity rate and overweight rate with other behavioral factors. Also, I will use the stratified data to explore the demoghraphical and sociological influence to obesity and obesity rate.
 
 ## Data Process
 Data processing is handled in external scripts. The processed data is then used for generating tables and figures saved in the output directory.
@@ -36,14 +36,200 @@ kable(summary_df) %>%
   kable_styling(bootstrap_options = c("striped", "hover"), full_width = F)
 ```
 
-## Distribution Plots
+\n
+The table reveals that the average prevalence of overweight and obesity in the adult population is approximately 35% and 30% respectively, indicative of a significant public health concern. Interestingly, a higher average participation rate is observed in moderate to vigorous physical activity (around 51%), yet only about 21% combine this with muscle-strengthening activities, suggesting an area for potential improvement in public health promotion.
+
+The data further suggests disparities in lifestyle choices, such as a considerable portion of adults not engaging in any leisure-time physical activity, averaging nearly 25%. On the nutritional front, the statistics point out that less than once daily, around 39% of adults fall short of the recommended fruit intake, while approximately 20% report insufficient vegetable consumption. 
+\n
+
+### Stratified Summary Table for Percent of adults aged 18 years and older who have obesity  
+#### by age group
+
+```{r}
+summary_table_path <- here("output/tables/summary_age_obesity.csv")
+summary_df <- read.csv(summary_table_path)
+kable(summary_df) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = F)
+```
+
+- Obesity rates are lowest among young adults aged 18-24 years and highest in the middle-aged group (45-54 years).
+- There is a general trend of increasing obesity with age until the mid-50s, after which it slightly declines in older age.
+
+#### by income group
+
+```{r}
+summary_table_path <- here("output/tables/summary_income_obesity.csv")
+summary_df <- read.csv(summary_table_path)
+kable(summary_df) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = F)
+```
+
+- Higher income is associated with lower obesity rates. Individuals earning $75,000 or more have the lowest obesity rates.
+- The highest obesity rates are seen in the lowest income group earning less than $15,000.
+
+#### by education group
+
+```{r}
+summary_table_path <- here("output/tables/summary_education_obesity.csv")
+summary_df <- read.csv(summary_table_path)
+kable(summary_df) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = F)
+```
+
+- Higher education correlates with lower obesity rates. College graduates have the lowest obesity rate.
+- Individuals with less than high school education have the highest rates.
+
+#### by ethnicity group
+
+```{r}
+summary_table_path <- here("output/tables/summary_ethnicity_obesity.csv")
+summary_df <- read.csv(summary_table_path)
+kable(summary_df) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = F)
+```
+
+- Hawaiian/Pacific Islanders have the highest obesity rates among the ethnic groups, followed by Non-Hispanic Blacks.
+- Asians have significantly lower obesity rates compared to other ethnic groups.
+
+#### by gender group
+
+```{r}
+summary_table_path <- here("output/tables/summary_gender_obesity.csv")
+summary_df <- read.csv(summary_table_path)
+kable(summary_df) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = F)
+```
+
+- Females have a slightly higher obesity rate compared to males.
+
+\n
+This detailed breakdown by various demographic characteristics can help in understanding the prevalence of obesity among different segments of the population. 
+\n
+
+## Distribution Plots of Obesity Rate
 ```{r}
 distribution_plot_path <- here("output/figures/obesity_trend_plot.png")
 knitr::include_graphics(distribution_plot_path)
 ```
 
-## Advanced Analysis
+\n
+The plot shows a consistent upward trend in adult obesity rates from 2011 to 2022, indicating a growing public health issue over the years.
+\n
 
-Sections for ANOVA and regression analysis follow, integrating results and figures produced by the analysis scripts.
+### Stratified by Age Group
+```{r}
+distribution_plot_path <- here("output/figures/obesity_age_plot.png")
+knitr::include_graphics(distribution_plot_path)
+```
+
+- Younger groups (18-24) have a lower density peak, indicating a lower percentage of obesity.
+- Middle age groups show higher peaks, suggesting higher obesity rates.
+
+### Stratified by Income Group
+```{r}
+distribution_plot_path <- here("output/figures/obesity_income_plot.png")
+knitr::include_graphics(distribution_plot_path)
+```
+
+- Lower income groups tend to have higher peaks, suggesting a higher percentage of obesity.
+
+### Stratified by Education Group
+```{r}
+distribution_plot_path <- here("output/figures/obesity_education_plot.png")
+knitr::include_graphics(distribution_plot_path)
+```
+
+- Distribution across education levels shows that individuals with less education tend to have higher obesity rates, reflected by higher density peaks.
+
+### Stratified by Ethnicity Group
+```{r}
+distribution_plot_path <- here("output/figures/obesity_ethnicity_plot.png")
+knitr::include_graphics(distribution_plot_path)
+```
+
+- Ethnicities like Asian Americans show lower density peaks, suggesting lower obesity percentages.
+
+### Stratified by Gender Group
+```{r}
+distribution_plot_path <- here("output/figures/obesity_gender_plot.png")
+knitr::include_graphics(distribution_plot_path)
+```
+
+- Males and females show different peak densities, indicating variations in obesity percentages between genders.
+
+## ANOVA Analysis
+
+### by age group
+
+```{r}
+load(here("output/analysis/ANOVA_age_obesity.RData"))
+summary_df
+```
+### by income group
+
+```{r}
+load(here("output/analysis/ANOVA_income_obesity.RData"))
+summary_df
+```
+### by education group
+
+```{r}
+load(here("output/analysis/ANOVA_education_obesity.RData"))
+summary_df
+```
+
+### by ethnicity group
+
+```{r}
+load(here("output/analysis/ANOVA_ethnicity_obesity.RData"))
+summary_df
+```
+
+### by gender group
+
+```{r}
+load(here("output/analysis/ANOVA_gender_obesity.RData"))
+summary_df
+```
+
+\n
+The ANOVA results suggest that there are significant differences in obesity rates when stratified by age, income, education, and ethnicity, with very strong statistical evidence. However, gender does not show a significant difference in obesity rates.
+\n
 
 ## Conclusion
+
+This report has explored the prevalence and distribution of obesity across various demographic segments in the United States, utilizing data spanning from 2011 to 2022. The findings illuminate several key aspects of how obesity is influenced by factors such as age, income, education, ethnicity, and physical activity levels.
+
+\n
+
+Key Observations:
+
+\n
+
+- Trends Over Time: There has been a consistent upward trend in obesity rates over the years, underscoring obesity as a growing public health concern.
+
+\n
+
+- Demographic Variations:
+\n
+  - Age: Obesity rates are lowest among young adults (18-24 years) and peak in middle-aged adults (45-54 years), before slightly declining in older adults.
+  - Income: Lower income groups exhibit higher obesity rates, suggesting economic factors play a significant role in access to healthy food options and lifestyle choices.
+  - Education: Higher education levels correlate with lower obesity rates, indicating the impact of educational attainment on health awareness and behaviors.
+  - Ethnicity: There are substantial differences in obesity rates among ethnic groups, with Hawaiian/Pacific Islanders and Non-Hispanic Blacks experiencing higher rates, and Asians having significantly lower rates.
+  - Gender: The differences in obesity rates between genders are minimal, suggesting that gender alone is not a significant predictor of obesity.
+
+\n
+
+- Implications for Public Health:
+\n
+The stratified data and ANOVA results strongly indicate that targeted interventions are crucial. Public health initiatives should consider these demographic factors to design effective health promotion programs. Efforts could include:
+
+  - Enhancing education and awareness about healthy lifestyle choices in lower-income and less-educated populations.
+  - Implementing community-specific health and nutrition programs to address the unique needs of different ethnic groups.
+  - Promoting policies that make healthy food options more accessible and affordable across all socio-economic strata.
+
+\n
+
+Future Research:
+\n
+Further studies are recommended to explore the underlying causes of the demographic disparities observed in this report. Additionally, evaluating the long-term effects of current public health policies on obesity rates could provide insights into their effectiveness and guide future strategies.

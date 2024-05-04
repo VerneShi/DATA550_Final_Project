@@ -12,8 +12,6 @@ To replicate the computing environment necessary to run this project, follow the
 2. Ensure that you have R installed on your system.
 3. Navigate to the project directory and run `make install` from the terminal. This will set up the R environment using the `renv` package.
 
-For more details on using `renv`, see the [renv documentation](https://rstudio.github.io/renv/articles/renv.html).
-
 ## Generating the Final Report
 
 The final report is generated from the `final_report.Rmd` document, which compiles the analysis results, including tables and figures, into a cohesive narrative. To generate the report:
