@@ -1,6 +1,7 @@
 # Load necessary libraries
 library(ggplot2)
 library(readr)
+library(dplyr)
 library(here)
 
 # Ensure relative paths start from the project root
