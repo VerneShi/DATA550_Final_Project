@@ -29,4 +29,4 @@ project_image: Dockerfile $(PROJECTFILES) $(RENVFILES)
 	
 # rule to build the report automatically in our container
 final_report/final_report.html: project_image
-	docker run -v "/$$(pwd)/final_report":/project/final_report yiweishi/data550_final_project
+	docker run -v "/$(pwd)/final_report":/project/final_report yiweishi/data550_final_project

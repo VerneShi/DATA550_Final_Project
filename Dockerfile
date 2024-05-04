@@ -17,7 +17,8 @@ COPY renv renv
 COPY Makefile . 
 COPY final_report.rmd . 
 
-COPY .Rprofile . 
+COPY final_project_github.Rproj . 
+COPY .Rprofile .
 COPY renv.lock .
 COPY renv/activate.R renv
 COPY renv/settings.json renv
